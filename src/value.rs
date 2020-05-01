@@ -9,7 +9,7 @@ pub trait Value: Any {
     fn borrow(&self) -> &dyn Value;
     fn borrow_mut(&mut self) -> &mut dyn Value;
     fn boxed(self) -> Box<dyn Value>;
-    fn as_type(&self) -> Type;
+    fn typ(&self) -> Type;
     fn field(&self, name: &str) -> Option<&dyn Value>;
     fn field_mut(&mut self, name: &str) -> Option<&mut dyn Value>;
     fn into_field(self, name: &str) -> Option<Box<dyn Value>>;
@@ -36,7 +36,7 @@ impl<T: Any> Value for T {
         Box::new(self)
     }
 
-    default fn as_type(&self) -> Type {
+    default fn typ(&self) -> Type {
         Type::new::<Self>(TypeKind::default())
     }
 
