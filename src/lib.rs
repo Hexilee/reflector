@@ -10,12 +10,11 @@
 mod attribute;
 mod field;
 mod func;
-mod object;
 mod signature;
 mod r#type;
 mod value;
 
 pub use func::Func;
-pub use object::Object;
 pub use r#type::{Type, TypeKind};
 pub use signature::Signature;
+pub use value::Value;
